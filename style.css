@@ -1,43 +1,156 @@
-
-body {
-  font-family: sans-serif;
-  text-align: center;
-  background: #cfead4;
+/* 복구된 CSS */
+* {
   margin: 0;
-  padding-bottom: 100px;
+  padding: 0;
+  box-sizing: border-box;
 }
-header h1 {
-  font-size: 36px;
-  margin: 20px 0;
+body {
+  margin: 40px;
+  text-align: center;
+  background: palegreen;
+  padding-bottom: 120px;
 }
-section {
-  margin: 30px auto;
-  max-width: 600px;
-  padding: 0 20px;
+marquee {
+  font-size: 12pt;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 20px;
+}
+h1 {
+  font-family: 'Boldonse', sans-serif;
+  font-size: 38pt;
+  margin-bottom: 20px;
+}
+.banner-section {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+.flag-banner {
+  position: relative;
+  width: 250px;
+}
+.flag-image {
+  width: 100%;
+  display: block;
+}
+.flag-text {
+  position: absolute;
+  top: 40%;
+  left: 51%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: black;
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 0.75;
+  white-space: pre-line;
+  width: 90%;
+}
+.flag-blinker {
+  animation: blink-flag 1.2s step-start infinite;
+}
+@keyframes blink-flag {
+  50% { opacity: 0; }
+}
+.intro {
+  max-width: 400px;
+  margin: 0 auto 40px;
+  padding: 20px;
+  border: 2px solid black;
+  font-size: 14px;
+  color: black;
+  background-color: white;
+  line-height: 1.7;
+  text-align: center;
+}
+.hiking-info-table {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+.hiking-info-table th,
+.hiking-info-table td {
+  border: 2px solid black;
+  padding: 10px;
+  text-align: center;
+  vertical-align: top;
+  word-break: break-word;
+}
+.hiking-info-table th {
+  background-color: white;
+  font-weight: bold;
+  width: 30%;
+  color: black;
+}
+.hiking-info-table td {
+  background-color: white;
+  color: black;
 }
 .floating-form {
   position: fixed;
   bottom: 0;
   left: 0;
-  right: 0;
-  padding: 16px;
-  background: #457b57;
-  color: white;
+  width: 100%;
+  background-color: darkseagreen;
+  padding: 12px 16px;
+  border-top: 2px solid black;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
 }
-.floating-form form {
+.form-inline {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  align-items: center;
   justify-content: center;
+  gap: 12px;
+}
+.floating-form label {
+  font-weight: bold;
 }
 .floating-form input {
   padding: 8px;
   font-size: 1rem;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  width: 160px;
 }
 .floating-form button {
-  background: #222;
-  color: white;
   padding: 10px 16px;
+  background-color: DarkSlateGray;
+  color: white;
   border: none;
+  border-radius: 6px;
+  font-weight: bold;
   cursor: pointer;
+}
+.floating-form button:hover {
+  background-color: black;
+}
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 28pt;
+  }
+  .flag-text {
+    font-size: 1rem;
+    top: 38%;
+  }
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .floating-form input,
+  .floating-form button {
+    width: 100%;
+  }
+  .intro {
+    padding: 16px;
+    font-size: 13px;
+  }
+  .hiking-info-table {
+    font-size: 0.9rem;
+  }
 }

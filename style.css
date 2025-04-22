@@ -1,4 +1,3 @@
-/* 복구된 CSS */
 * {
   margin: 0;
   padding: 0;
@@ -101,12 +100,12 @@ h1 {
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
   z-index: 10;
 }
-.form-inline {
+.floating-form form {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
   gap: 12px;
+  justify-content: center;
 }
 .floating-form label {
   font-weight: bold;
@@ -138,7 +137,7 @@ h1 {
     font-size: 1rem;
     top: 38%;
   }
-  .form-inline {
+  .floating-form form {
     flex-direction: column;
     align-items: stretch;
   }

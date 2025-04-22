@@ -4,21 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>불곰산악회 | 사패산 산행 신청</title>
+
+  <!-- 썸네일 설정 -->
+  <meta property="og:title" content="불곰산악회 | 2025년 첫 정기 산행 모집!" />
+  <meta property="og:description" content="5월 24일 (토) 사패산에서 함께해요. 신청은 불곰 웹사이트에서!" />
+  <meta property="og:image" content="https://yourname.github.io/bulgom/5.png" />
+  <meta property="og:url" content="https://yourname.github.io/bulgom/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Diphylleia&family=Grandiflora+One&family=Hahmlet:wght@100..900&family=Moirai+One&display=swap" rel="stylesheet">
 </head>
-
 <body>
   <marquee behavior="scroll" direction="right" scrollamount="9">
-    <span class="marquee-blinker">🐻 2025년, 첫 산행 절찬리 모집! 🏞️</span>
+    <span class="marquee-blinker">🐻 2025년, 첫 산행 절찬리 모집중! 🏞️</span>
   </marquee>
 
   <header>
     <h1>Bulgom Hiking Club</h1>
   </header>
-
+  <br>
   <section class="banner-section">
     <div class="flag-banner">
       <img src="5.png" alt="깃발 이미지" class="flag-image" />
@@ -29,8 +34,8 @@
     </div>
   </section>
 
-    <h2>산악회 소개</h2>
-    <br>
+  <h2>산악회 소개</h2>
+  <br>
   <section class="intro">
     <p>
       🐻 <strong>불곰산악회</strong>는<br>
@@ -56,40 +61,37 @@
     </table>
   </section>
 
+  <!-- 하단 고정 신청 폼 -->
   <div class="floating-form">
-<form id="hikingForm">
-  <label for="name">이름:</label>
-  <input type="text" id="name" name="name" required>
+    <form id="hikingForm">
+      <label for="name">이름:</label>
+      <input type="text" id="name" name="name" required>
 
-  <label for="phone">연락처:</label>
-  <input type="text" id="phone" name="phone" required>
+      <label for="phone">연락처:</label>
+      <input type="text" id="phone" name="phone" required>
 
-  <button type="submit">신청하기</button>
-</form>
+      <button type="submit">신청하기</button>
+    </form>
   </div>
 
   <script>
-document.getElementById("hikingForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+    document.getElementById("hikingForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
 
-  const name = document.getElementById("name").value;
-  const phone = document.getElementById("phone").value;
+      fetch("https://script.google.com/macros/s/AKfycbzk2J-zY_2hRnpP0SR60a-cNdhe6mGgGFf-9KFFOqOSHjWIG2OSX3QEa12J6ra7O--VrQ/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: new URLSearchParams({ name, phone })
+      });
 
-  fetch("https://script.google.com/macros/s/AKfycbzk2J-zY_2hRnpP0SR60a-cNdhe6mGgGFf-9KFFOqOSHjWIG2OSX3QEa12J6ra7O--VrQ/exec", {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded"
-    },
-    body: new URLSearchParams({
-      name,
-      phone
-    })
-  });
-
-  alert("신청 완료!🐻📄");
-  this.reset();
-});
-</script>
+      alert("신청 완료!🐻📄");
+      this.reset();
+    });
+  </script>
 </body>
 </html>

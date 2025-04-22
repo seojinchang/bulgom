@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>불곰산악회 | 사패산 산행 신청</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <marquee behavior="scroll" direction="right" scrollamount="9">
+    <span class="marquee-blinker">🐻 2025년, 첫 산행 절찬리 모집! 🏞️</span>
+  </marquee>
+
+  <header>
+    <h1>Bulgom Hiking Club</h1>
+  </header>
+
+  <section class="info">
+    <h2>산행 정보</h2>
+    <p>5월 24일 (토) 오전 10시 / 사패산</p>
+    <p>회룡역 → 호암사 → 사패능선</p>
+  </section>
+
+  <section class="intro">
+    <p>불곰산악회는 서울 근교 느슨한 산행을 지향합니다.<br>
+    이 웹사이트는 회장이 직접 손으로 만든 정통 HTML입니다.<br>
+    신청 정보 누락될 수 있으니 DM도 부탁드려요 🐾</p>
+  </section>
+
+  <div class="floating-form">
+    <form id="hikingForm">
+      <label for="name">이름:</label>
+      <input type="text" id="name" name="name" required />
+      <label for="phone">연락처:</label>
+      <input type="text" id="phone" name="phone" required />
+      <button type="submit">신청하기</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("hikingForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+
+      fetch("https://script.google.com/macros/s/AKfycbzk2J-zY_2hRnpP0SR60a-cNdhe6mGgGFf-9KFFOqOSHjWIG2OSX3QEa12J6ra7O--VrQ/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: new URLSearchParams({ name, phone })
+      });
+
+      alert("신청 완료!🐻📄");
+      this.reset();
+    });
+  </script>
+</body>
+</html>
